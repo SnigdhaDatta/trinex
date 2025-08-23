@@ -14,7 +14,7 @@ import { ErrorAlert } from '../ui/ErrorAlert';
 import { DomainVerification } from './DomainVerification';
 import { ScanHistorySidebar } from './ScanHistorySidebar';
 import { useScanHistory } from '@/app/hooks/useScanHistory';
-import type { TabType, ScanResult } from '../../types/cyberscope';
+import type { TabType, ScanResult } from '../../app/types/trinex';
 
 export default function CyberScope() {
   const {
