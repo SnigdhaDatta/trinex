@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { format } from 'date-fns';
-import { 
-  Clock, 
-  FileText, 
-  Shield, 
-  TrendingUp, 
-  Trash2, 
+import React, { useState } from "react";
+import { format } from "date-fns";
+import {
+  Clock,
+  FileText,
+  Shield,
+  TrendingUp,
+  Trash2,
   ChevronDown,
   Search,
-  X
-} from 'lucide-react';
-import { useScanHistory } from '@/app/hooks/useScanHistory';
-import { ScanHistoryItem, ScanResult } from '@/app/types/trinex';
+  X,
+} from "lucide-react";
+import { useScanHistory } from "@/app/hooks/useScanHistory";
+import { ScanHistoryItem, ScanResult } from "@/app/types/trinex";
 
 interface ScanHistorySidebarProps {
   isOpen: boolean;
@@ -20,11 +20,11 @@ interface ScanHistorySidebarProps {
   userId?: string;
 }
 
-export function ScanHistorySidebar({ 
-  isOpen, 
-  onClose, 
-  onLoadScan, 
-  userId 
+export function ScanHistorySidebar({
+  isOpen,
+  onClose,
+  onLoadScan,
+  userId,
 }: ScanHistorySidebarProps) {
   const {
     history,
@@ -35,12 +35,13 @@ export function ScanHistorySidebar({
     deleteScanResult,
   } = useScanHistory(userId);
 
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [loadingId, setLoadingId] = useState<string | null>(null);
 
-  const filteredHistory = history.filter(item =>
-    item.url.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.title?.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredHistory = history.filter(
+    (item) =>
+      item.url.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.title?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleLoadScan = async (item: ScanHistoryItem) => {
@@ -58,7 +59,7 @@ export function ScanHistorySidebar({
 
   const handleDelete = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (confirm('Are you sure you want to delete this scan result?')) {
+    if (confirm("Are you sure you want to delete this scan result?")) {
       await deleteScanResult(id);
     }
   };
@@ -83,7 +84,10 @@ export function ScanHistorySidebar({
 
       <div className="p-4 border-b">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
+          <Search
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={16}
+          />
           <input
             type="text"
             placeholder="Search scans..."
@@ -101,7 +105,9 @@ export function ScanHistorySidebar({
           </div>
         ) : filteredHistory.length === 0 ? (
           <div className="p-4 text-center text-gray-500">
-            {searchTerm ? 'No scans match your search.' : 'No scan history found.'}
+            {searchTerm
+              ? "No scans match your search."
+              : "No scan history found."}
           </div>
         ) : (
           <div className="space-y-2 p-4">
@@ -114,7 +120,7 @@ export function ScanHistorySidebar({
                 <div className="flex items-start justify-between">
                   <div className="flex-1 min-w-0">
                     <h3 className="font-medium text-sm truncate">
-                      {item.title || 'Untitled Page'}
+                      {item.title || "Untitled Page"}
                     </h3>
                     <p className="text-xs text-gray-600 truncate mt-1">
                       {item.url}
@@ -134,7 +140,7 @@ export function ScanHistorySidebar({
                       </span>
                     </div>
                     <p className="text-xs text-gray-400 mt-1">
-                      {format(new Date(item.timestamp), 'MMM dd, yyyy HH:mm')}
+                      {format(new Date(item.timestamp), "MMM dd, yyyy HH:mm")}
                     </p>
                   </div>
                   <div className="flex items-center gap-1 ml-2">
@@ -151,14 +157,14 @@ export function ScanHistorySidebar({
                 </div>
               </div>
             ))}
-            
+
             {hasMore && (
               <button
                 onClick={loadMore}
                 disabled={loading}
                 className="w-full py-2 text-sm text-blue-600 hover:text-blue-800 disabled:text-gray-400"
               >
-                {loading ? 'Loading...' : 'Load More'}
+                {loading ? "Loading..." : "Load More"}
               </button>
             )}
           </div>

@@ -2,9 +2,9 @@ import { CheckCircle, AlertCircle, XCircle } from "lucide-react";
 
 export function SEOScore({ score }: { score: number }) {
   const getScoreColor = (score: number) => {
-    if (score >= 80) return 'text-green-400';
-    if (score >= 60) return 'text-yellow-400';
-    return 'text-red-400';
+    if (score >= 80) return "text-green-400";
+    if (score >= 60) return "text-yellow-400";
+    return "text-red-400";
   };
 
   const getScoreIcon = (score: number) => {
@@ -14,12 +14,12 @@ export function SEOScore({ score }: { score: number }) {
   };
 
   const getScoreGrade = (score: number) => {
-    if (score >= 90) return 'A+';
-    if (score >= 80) return 'A';
-    if (score >= 70) return 'B';
-    if (score >= 60) return 'C';
-    if (score >= 50) return 'D';
-    return 'F';
+    if (score >= 90) return "A+";
+    if (score >= 80) return "A";
+    if (score >= 70) return "B";
+    if (score >= 60) return "C";
+    if (score >= 50) return "D";
+    return "F";
   };
 
   return (
@@ -41,14 +41,17 @@ export function SEOScore({ score }: { score: number }) {
           </div>
         </div>
       </div>
-      
+
       {/* Progress bar */}
       <div className="mt-4">
         <div className="w-full bg-gray-700 rounded-full h-3">
-          <div 
+          <div
             className={`h-3 rounded-full transition-all duration-500 ${
-              score >= 80 ? 'bg-green-400' : 
-              score >= 60 ? 'bg-yellow-400' : 'bg-red-400'
+              score >= 80
+                ? "bg-green-400"
+                : score >= 60
+                ? "bg-yellow-400"
+                : "bg-red-400"
             }`}
             style={{ width: `${score}%` }}
           ></div>

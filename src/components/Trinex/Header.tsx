@@ -1,4 +1,4 @@
-import { Target, Clock } from 'lucide-react';
+import { Target, Clock } from "lucide-react";
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -15,10 +15,12 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-white">CyberScope</h1>
-            <p className="text-cyan-200 text-sm">Advanced Web Security Scanner</p>
+            <p className="text-cyan-200 text-sm">
+              Advanced Web Security Scanner
+            </p>
           </div>
         </div>
-        
+
         <div className="flex items-center">
           <button
             onClick={onToggleSidebar}

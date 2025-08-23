@@ -1,4 +1,4 @@
-import { Globe, Zap } from 'lucide-react';
+import { Globe, Zap } from "lucide-react";
 
 interface ScanInputProps {
   url: string;

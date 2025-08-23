@@ -1,20 +1,20 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { useCyberScan } from '../../app/hooks/useTrinexScan';
-import { Header } from './Header';
-import { ScanInput } from './ScanInput';
-import { SecurityScore } from './SecurityScore';
-import { StatsCards } from './StatsCards';
-import { CriticalAlerts } from './CriticalAlerts';
-import { ScriptAnalysis } from './ScriptAnalysis';
-import { NetworkAnalysis } from './NetworkAnalysis';
-import { SEOAnalysis } from './SEOAnalysis';
-import { TabNavigation } from '../ui/TabNavigation';
-import { ErrorAlert } from '../ui/ErrorAlert';
-import { DomainVerification } from './DomainVerification';
-import { ScanHistorySidebar } from './ScanHistorySidebar';
-import { useScanHistory } from '@/app/hooks/useScanHistory';
-import type { TabType, ScanResult } from '../../app/types/trinex';
+"use client";
+import { useState, useEffect } from "react";
+import { useCyberScan } from "../../app/hooks/useTrinexScan";
+import { Header } from "./Header";
+import { ScanInput } from "./ScanInput";
+import { SecurityScore } from "./SecurityScore";
+import { StatsCards } from "./StatsCards";
+import { CriticalAlerts } from "./CriticalAlerts";
+import { ScriptAnalysis } from "./ScriptAnalysis";
+import { NetworkAnalysis } from "./NetworkAnalysis";
+import { SEOAnalysis } from "./SEOAnalysis";
+import { TabNavigation } from "../ui/TabNavigation";
+import { ErrorAlert } from "../ui/ErrorAlert";
+import { DomainVerification } from "./DomainVerification";
+import { ScanHistorySidebar } from "./ScanHistorySidebar";
+import { useScanHistory } from "@/app/hooks/useScanHistory";
+import type { TabType, ScanResult } from "../../app/types/trinex";
 
 export default function CyberScope() {
   const {
@@ -32,29 +32,37 @@ export default function CyberScope() {
     checkVerification,
     resetVerification,
     loadPreviousScan,
-    userId
+    userId,
   } = useCyberScan();
 
   const { addToHistory } = useScanHistory(userId);
-  const [activeTab, setActiveTab] = useState<TabType>('scripts');
+  const [activeTab, setActiveTab] = useState<TabType>("scripts");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const tabs = [
     {
-      key: 'scripts' as TabType,
+      key: "scripts" as TabType,
       label: `Script Analysis (${result?.totalScripts || 0})`,
-      icon: 'FileText'
+      icon: "FileText",
     },
-    ...(result?.networkCalls && result.networkCalls.length > 0 ? [{
-      key: 'network' as TabType,
-      label: `Network Calls (${result?.totalNetworkCalls || 0})`,
-      icon: 'Server'
-    }] : []),
-    ...(result?.seoAnalysis ? [{
-      key: 'seo' as TabType,
-      label: `SEO Analysis (${result.seoAnalysis.score || 0}/100)`,
-      icon: 'TrendingUp'
-    }] : [])
+    ...(result?.networkCalls && result.networkCalls.length > 0
+      ? [
+          {
+            key: "network" as TabType,
+            label: `Network Calls (${result?.totalNetworkCalls || 0})`,
+            icon: "Server",
+          },
+        ]
+      : []),
+    ...(result?.seoAnalysis
+      ? [
+          {
+            key: "seo" as TabType,
+            label: `SEO Analysis (${result.seoAnalysis.score || 0}/100)`,
+            icon: "TrendingUp",
+          },
+        ]
+      : []),
   ];
 
   // Effect to add successful scans to history
@@ -69,7 +77,9 @@ export default function CyberScope() {
     if (loadPreviousScan) {
       loadPreviousScan(scanResult);
     } else {
-      console.warn('loadPreviousScan method not available in useCyberScan hook');
+      console.warn(
+        "loadPreviousScan method not available in useCyberScan hook"
+      );
     }
   };
 
@@ -80,7 +90,7 @@ export default function CyberScope() {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
       <Header onToggleSidebar={toggleSidebar} />
-      
+
       <div className="container mx-auto p-6 max-w-7xl">
         <ScanInput
           url={url}
@@ -114,18 +124,22 @@ export default function CyberScope() {
                 activeTab={activeTab}
                 onTabChange={setActiveTab}
               />
-              
+
               <div className="p-6">
-                {activeTab === 'scripts' && <ScriptAnalysis scripts={result.scripts} />}
-                
-                {activeTab === 'network' && result.networkCalls && result.networkSummary && (
-                  <NetworkAnalysis
-                    networkCalls={result.networkCalls}
-                    networkSummary={result.networkSummary}
-                  />
+                {activeTab === "scripts" && (
+                  <ScriptAnalysis scripts={result.scripts} />
                 )}
-                
-                {activeTab === 'seo' && result.seoAnalysis && (
+
+                {activeTab === "network" &&
+                  result.networkCalls &&
+                  result.networkSummary && (
+                    <NetworkAnalysis
+                      networkCalls={result.networkCalls}
+                      networkSummary={result.networkSummary}
+                    />
+                  )}
+
+                {activeTab === "seo" && result.seoAnalysis && (
                   <SEOAnalysis seoAnalysis={result.seoAnalysis} />
                 )}
               </div>

@@ -1,13 +1,17 @@
-import { Activity } from 'lucide-react';
-import { getSecurityScore, getSecurityLabel } from '../../utils/formatters';
-import type { ScanResult } from '../../app/types/trinex';
+import { Activity } from "lucide-react";
+import { getSecurityScore, getSecurityLabel } from "../../utils/formatters";
+import type { ScanResult } from "../../app/types/trinex";
 
 interface SecurityScoreProps {
   result: ScanResult;
 }
 
 export const SecurityScore = ({ result }: SecurityScoreProps) => {
-  const score = getSecurityScore(result.totalScripts, result.totalCredentials, result.networkSummary);
+  const score = getSecurityScore(
+    result.totalScripts,
+    result.totalCredentials,
+    result.networkSummary
+  );
   const { label, color, icon } = getSecurityLabel(score);
 
   return (
@@ -20,16 +24,18 @@ export const SecurityScore = ({ result }: SecurityScoreProps) => {
         <div className={`flex items-center gap-2 font-medium ${color}`}>
           {icon} {label}
         </div>
-        <span className="font-bold text-white text-xl">{score.toFixed(0)}%</span>
+        <span className="font-bold text-white text-xl">
+          {score.toFixed(0)}%
+        </span>
       </div>
       <div className="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
         <div
           className={`h-4 rounded-full transition-all duration-1000 ${
-            score > 80 
-              ? 'bg-gradient-to-r from-green-500 to-green-400' 
-              : score > 50 
-                ? 'bg-gradient-to-r from-yellow-500 to-yellow-400' 
-                : 'bg-gradient-to-r from-red-500 to-red-400'
+            score > 80
+              ? "bg-gradient-to-r from-green-500 to-green-400"
+              : score > 50
+              ? "bg-gradient-to-r from-yellow-500 to-yellow-400"
+              : "bg-gradient-to-r from-red-500 to-red-400"
           }`}
           style={{ width: `${score}%` }}
         />
