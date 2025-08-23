@@ -11,7 +11,7 @@ import {
   X
 } from 'lucide-react';
 import { useScanHistory } from '@/app/hooks/useScanHistory';
-import { ScanHistoryItem, ScanResult } from '@/app/types/cyberscope';
+import { ScanHistoryItem, ScanResult } from '@/app/types/trinex';
 
 interface ScanHistorySidebarProps {
   isOpen: boolean;
