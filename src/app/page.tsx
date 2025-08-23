@@ -3,8 +3,8 @@
 
 import { useUser } from "@clerk/nextjs";
 // import CyberScope from "./components/CyberScope/CyberScope";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
-import TrinexLandingPage from "@/components/TrinexLanding";
+import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import TrinexLandingPage from "@/components/ui/TrinexLanding";
 
 export default function Page() {
   const { isSignedIn, isLoaded } = useUser();
