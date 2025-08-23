@@ -1,6 +1,6 @@
 import { credentialPatterns } from "./patterns";
 import { isLikelyFalsePositive } from "./filters";
-import { CredentialMatch } from "@/app/types/cyberscope";
+import { CredentialMatch } from "@/app/types/trinex";
 
 export function detectCredentials(
   content: string,
