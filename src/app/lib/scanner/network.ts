@@ -1,5 +1,5 @@
 import { Page } from "puppeteer-core";
-import { NetworkCall } from "@/app/types/cyberscope";
+import { NetworkCall } from "@/app/types/trinex";
 
 export async function setupNetworkMonitoring(
   page: Page
