@@ -15,9 +15,9 @@ import {
   SEORecommendation,
   ScanResult,
   ScannedScript,
-} from "@/app/types/cyberscope";
+} from "@/app/types/trinex";
 import { DomainVerifier } from "@/app/lib/verification/domain-verification";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client/extension";
 import { randomUUID } from "crypto";
 
 const prisma = new PrismaClient();
