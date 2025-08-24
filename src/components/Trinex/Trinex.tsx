@@ -16,7 +16,7 @@ import { ScanHistorySidebar } from "./ScanHistorySidebar";
 import { useScanHistory } from "@/app/hooks/useScanHistory";
 import type { TabType, ScanResult } from "../../app/types/trinex";
 
-export default function CyberScope() {
+export default function Trinex() {
   const {
     url,
     setUrl,

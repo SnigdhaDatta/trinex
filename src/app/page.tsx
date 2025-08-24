@@ -2,7 +2,7 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-// import CyberScope from "./components/CyberScope/CyberScope";
+import Trinex from "@/components/Trinex/Trinex";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import TrinexLandingPage from "@/components/ui/TrinexLanding";
 
@@ -18,8 +18,8 @@ export default function Page() {
   }
 
   if (!isSignedIn) {
-    return <TrinexLandingPage />;
+    return <Trinex/>;
   }
 
-  //return <CyberScope />;
+  return <Trinex />;
 }

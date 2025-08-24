@@ -2,7 +2,7 @@ import { ScanResult, SecurityScore } from "@/app/types/trinex";
 
 export function calculateSecurityScore(scanResult: ScanResult): SecurityScore {
   let score = 100;
-  let issues: string[] = [];
+  const issues: string[] = [];
 
   if (scanResult.totalCredentials > 0) {
     score -= Math.min(50, scanResult.totalCredentials * 10);
