@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trinex
+
+Trinex is a modern web application built with Next.js and TypeScript, featuring advanced website scanning, scan history management, and authentication using Clerk. It leverages Puppeteer and Chromium for browser automation and Prisma for database management.
+
+## Features
+
+- Scan websites and analyze scripts, credentials, and SEO scores
+- View and manage scan history
+- User authentication with Clerk
+- Fast and secure browser automation using Puppeteer and @sparticuz/chromium
+- Database operations powered by Prisma ORM
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Clerk (Authentication)
+- Prisma ORM
+- Puppeteer & @sparticuz/chromium
+- Tailwind CSS
+- date-fns
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js (v18 or above recommended)
+- npm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SnigdhaDatta/trinex.git
+   cd trinex
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   - Copy `.env.example` to `.env` and fill in required values (database URL, Clerk keys, etc.)
+4. Set up Prisma:
+   ```bash
+   npx prisma generate
+   npx prisma migrate dev
+   ```
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Usage
+
+- Access the app at `http://localhost:3000`
+- Sign up or log in using Clerk authentication
+- Start scanning websites and view your scan history
+
+## Scripts
+
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run start` — Start production server
+- `npx prisma migrate dev` — Run Prisma migrations
+
+## Folder Structure
+
+```
+components.json
+eslint.config.mjs
+next-env.d.ts
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+tsconfig.json
+public/
+src/
+  middleware.ts
+  app/
+	 favicon.ico
+	 globals.css
+	 layout.tsx
+	 page.tsx
+	 components/
+		TrinexLanding.tsx
+		ui/
+		  alert.tsx
+	 lib/
+		utils.ts
+		scanner/
+		verification/
+		db.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+MIT
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Author
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Snigdha Datta
+Ankita Chakraborty
+Shemanti Paul
