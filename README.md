@@ -4,7 +4,8 @@ Trinex is a modern web application built with Next.js and TypeScript, featuring 
 
 ## Features
 
-- Scan websites and analyze scripts, credentials, and SEO scores
+- Scan websites for Domain Verification, Analyzing scripts, Credential Exposure, and SEO scores
+- Generate a Report of the Above Ankysis mentioned for Industry Level Practices
 - View and manage scan history
 - User authentication with Clerk
 - Fast and secure browser automation using Puppeteer and @sparticuz/chromium
