@@ -1,10 +1,10 @@
 # Trinex
 
-Trinex is a modern web application built with Next.js and TypeScript, featuring advanced website scanning, scan history management, and authentication using Clerk. It leverages Puppeteer and Chromium for browser automation and Prisma for database management.
+Trinex is a modern web application built with Next.js and TypeScript, featuring advanced website scanning for Domain Verification, Analyzing scripts, Credential Leak, and SEO scores , scan history management, and authentication using Clerk. It leverages Puppeteer and Chromium for browser automation and Prisma for database management.
 
 ## Features
 
-- Scan websites for Domain Verification, Analyzing scripts, Credential Exposure, and SEO scores
+- Scan websites for Domain Verification, Analyzing scripts, Credential Leak, and SEO scores
 - Generate a Report of the Above Ankysis mentioned for Industry Level Practices
 - View and manage scan history
 - User authentication with Clerk
@@ -100,6 +100,6 @@ MIT
 
 ## Author
 
-Snigdha Datta
-Ankita Chakraborty
-Shemanti Paul
+-Snigdha Datta
+-Ankita Chakraborty
+-Shemanti Paul
